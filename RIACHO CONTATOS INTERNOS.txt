@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Distrito Sanitário Riacho - Contatos Internos</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+        .phone-highlight {
+            color: #059669;
+            font-weight: 600;
+        }
+        
+        .search-container {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+        
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+        
+        .table-row:hover {
+            background-color: #f1f5f9;
+        }
+        
+        .hidden-row {
+            display: none;
+        }
+
+        .home-button {
+            background-color: #1f2937;
+            color: white;
+            font-weight: bold;
+            padding: 8px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            border: 2px solid #374151;
+        }
+        
+        .home-button:hover {
+            background-color: #374151;
+            border-color: #4b5563;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Cabeçalho -->
+    <header class="bg-blue-900 text-white shadow-lg">
+        <div class="container mx-auto px-4 py-6">
+            <div class="relative">
+                <!-- Botão Tela Inicial -->
+                <div class="absolute top-0 left-0">
+                    <a href="https://compartilhaeldorado-bit.github.io/distrito-riacho/" class="home-button inline-flex items-center">
+                        <i class="fas fa-home mr-2"></i>Tela Inicial
+                    </a>
+                </div>
+                
+                <!-- Conteúdo Central -->
+                <div class="text-center">
+                    <h1 class="text-2xl md:text-3xl font-bold mb-2">
+                        <i class="fas fa-hospital-alt mr-2"></i>
+                        DISTRITO SANITÁRIO RIACHO
+                    </h1>
+                    <h2 class="text-lg md:text-xl font-medium mb-4">
+                        <i class="fas fa-phone mr-2"></i>
+                        CONTATOS INTERNOS
+                    </h2>
+                </div>
+            </div>
+            <div class="text-center text-xs text-blue-200 mt-4 border-t border-blue-800 pt-3">
+                <i class="fas fa-user-edit mr-1"></i>
+                Página criada por Ana P. A. Silva Matr.201704/Ref. Vivver/Distrito Eldorado
+            </div>
+        </div>
+    </header>
+
+    <!-- Container Principal -->
+    <div class="container mx-auto px-4 py-6">
+        <!-- Sistema de Pesquisa -->
+        <div class="search-container rounded-lg shadow-md p-6 mb-6">
+            <div class="flex flex-col md:flex-row gap-4 items-center">
+                <div class="flex-1">
+                    <div class="relative">
+                        <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                        <input 
+                            type="text" 
+                            id="searchInput" 
+                            placeholder="Pesquisar por unidade, telefone ou endereço..."
+                            class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                        >
+                    </div>
+                </div>
+                <button 
+                    onclick="clearSearch()" 
+                    class="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-lg transition-colors duration-200 flex items-center"
+                >
+                    <i class="fas fa-times mr-2"></i>
+                    Limpar Pesquisa
+                </button>
+            </div>
+        </div>
+
+        <!-- Tabela de Contatos -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div class="overflow-x-auto">
+                <table class="w-full">
+                    <thead class="bg-blue-900 text-white">
+                        <tr>
+                            <th class="px-4 py-4 text-left font-semibold">
+                                <i class="fas fa-building mr-2"></i>
+                                SETOR
+                            </th>
+                            <th class="px-4 py-4 text-left font-semibold">
+                                <i class="fas fa-phone mr-2"></i>
+                                CONTATO TELEFÔNICO
+                            </th>
+                            <th class="px-4 py-4 text-left font-semibold">
+                                <i class="fas fa-map-marker-alt mr-2"></i>
+                                RESPONSÁVEL
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="contactsTable" class="divide-y divide-gray-200">
+                        <tr class="table-row">
+                            <td class="px-4 py-4 font-medium text-gray-900">GESTÃO DA CLINÍCA</td>
+                            <td class="px-4 py-4 phone-highlight">3911-7180</td>
+                        </tr>
+                        <tr class="table-row bg-gray-50">
+                            <td class="px-4 py-4 font-medium text-gray-900">RECURSOS HUMANOS</td>
+                            <td class="px-4 py-4 phone-highlight">3911-7168</td>
+                        </tr>
+                        <tr class="table-row">
+                            <td class="px-4 py-4 font-medium text-gray-900">RECEPÇÃO</td>
+                            <td class="px-4 py-4 phone-highlight">3911-7179</td>
+                        </tr>
+                        <tr class="table-row bg-gray-50">
+                            <td class="px-4 py-4 font-medium text-gray-900">DIRETORIA</td>
+                            <td class="px-4 py-4 phone-highlight">3911-7176</td>
+                        </tr>
+                        <tr class="table-row">
+                            <td class="px-4 py-4 font-medium text-gray-900">EPIDEMIOLOGIA</td>
+                            <td class="px-4 py-4 phone-highlight">3911-7137</td>
+                       </tr>
+                        <tr class="table-row">
+                            <td class="px-4 py-4 font-medium text-gray-900">ZOONOSES</td>
+                            <td class="px-4 py-4 phone-highlight">3353-2000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Informações adicionais -->
+        <div class="mt-6 text-center text-gray-600">
+            <p class="text-sm">
+                <i class="fas fa-info-circle mr-1"></i>
+                Total de unidades cadastradas: <span id="totalUnits" class="font-semibold">11</span>
+            </p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-white py-6 mt-8">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-sm">
+                <i class="fas fa-hospital-alt mr-2"></i>
+                Distrito Sanitário Petrolândia - Sistema de Contatos
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const tableRows = document.querySelectorAll('.table-row');
+        const totalUnitsSpan = document.getElementById('totalUnits');
+
+        function performSearch() {
+            const searchTerm = searchInput.value.toLowerCase().trim();
+            let visibleCount = 0;
+
+            tableRows.forEach(row => {
+                const cells = row.querySelectorAll('td');
+                const rowText = Array.from(cells).map(cell => cell.textContent.toLowerCase()).join(' ');
+                
+                if (searchTerm === '' || rowText.includes(searchTerm)) {
+                    row.classList.remove('hidden-row');
+                    visibleCount++;
+                } else {
+                    row.classList.add('hidden-row');
+                }
+            });
+
+            totalUnitsSpan.textContent = visibleCount;
+        }
+
+        function clearSearch() {
+            searchInput.value = '';
+            tableRows.forEach(row => {
+                row.classList.remove('hidden-row');
+            });
+            totalUnitsSpan.textContent = tableRows.length;
+            searchInput.focus();
+        }
+
+        // Event listeners
+        searchInput.addEventListener('input', performSearch);
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+
+        // Inicialização
+        document.addEventListener('DOMContentLoaded', function() {
+            searchInput.focus();
+        });
+    </script>
+</body>
+</html>
